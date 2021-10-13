@@ -15,7 +15,8 @@ pub fn read() {
             let cmd = &args[1];
             match &cmd[..] {
                 "guess" => guess_100(),
-                _ => println!("This is not the answer."),
+                "help" => help(),
+                _ => println!("Sorry, I do not know this option 🤨"),
             }
         },
         // all the other cases
@@ -30,5 +31,7 @@ fn help() {
     println!("Usage: rust_book [OPTION]
 Options:
     guess   Chapter 2: Guessing Game
-    loops   Chapter 3: Loop examples");
+    loops   Chapter 3: Loop examples
+    
+martin.schuler@outlook.com");
 }
