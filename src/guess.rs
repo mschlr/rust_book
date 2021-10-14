@@ -9,7 +9,7 @@ pub fn guess_100() {
     let mut counter = 1;
 
     loop {
-        println!("Please input your guess.");
+        println!("Please input your guess:");
 
         let mut guess = String::new();
 
@@ -22,13 +22,12 @@ pub fn guess_100() {
             Err(_) => continue,
         };
 
-        println!("Bravo, you guessed {} in {} attempts!", guess, counter);
-
         match guess.cmp(&secret_number) {
-            Ordering::Less => println!("Too small!"),
-            Ordering::Greater => println!("Too big!"),
+            Ordering::Less => println!("..{} is too small!", guess),
+            Ordering::Greater => println!("..{} is too big!", guess),
             Ordering::Equal => {
                 println!("You win!");
+                println!("Bravo, you guessed {} in {} attempts!", guess, counter);
                 break;
             }
         }
