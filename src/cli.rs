@@ -1,6 +1,8 @@
 use std::env;
 use crate::guess::guess_100;
 use crate::common::run;
+use crate::ownership::hello;
+use crate::structs::rec;
 
 pub fn args() {
     let args: Vec<String> = env::args().collect();
@@ -12,6 +14,8 @@ pub fn args() {
             match &cmd[..] {
                 "guess" => guess_100(),
                 "common" => run(),
+                "ownership" => hello(),
+                "rectangles" => rec(),
                 "help" => help(),
                 _ => { println!("Sorry, I do not know this option 🤨"); help()},
             }
@@ -29,6 +33,8 @@ fn help() {
 Options:
     guess       Chapter 2: Guessing Game
     common      Chapter 3: Common concepts
+    ownership   Chapter 4: Rust concept of `ownership`
+    rectangles  Chapter 5: Example Program Using Structs
 
 Martin Schuler <martin.schuler@outlook.com>");
 }
