@@ -3,6 +3,7 @@ use crate::guess::guess_100;
 use crate::common::run;
 use crate::ownership::hello;
 use crate::structs::rec;
+use crate::hashmap::exercise;
 
 pub fn args() {
     let args: Vec<String> = env::args().collect();
@@ -16,6 +17,7 @@ pub fn args() {
                 "common" => run(),
                 "ownership" => hello(),
                 "rectangles" => rec(),
+                "hashmap" => exercise(),
                 "help" => help(),
                 _ => { println!("Sorry, I do not know this option 🤨"); help()},
             }
@@ -35,6 +37,7 @@ Options:
     common      Chapter 3: Common concepts
     ownership   Chapter 4: Rust concept of `ownership`
     rectangles  Chapter 5: Example Program Using Structs
+    hashmap     Chapter 8: Exercises with Vectors and HashMap
 
 Martin Schuler <martin.schuler@outlook.com>");
 }
