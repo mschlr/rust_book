@@ -1,17 +1,48 @@
+use std::io;
 use std::mem;
 use std::collections::HashMap;
 
 pub fn exercise() {
     arrays(); // repeat some stuff with arrays
 
+    // Error Handling out of boundaries
+    println!("\nQuery Element from Vector v1!\n");
+
+    let small_vector = vec![3, 7, 1, 4, 2, 5]; // v1
+
+    loop {
+        println!("v1 = {:?}\n", small_vector);
+        println!("Please enter an index from Vector above:");
+       let mut index = String::new();
+
+        io::stdin()
+            .read_line(&mut index)
+            .expect("Failed to read line");
+        
+        let index: usize = match index.trim().parse() {
+            Ok(num) => num,
+            Err(_) => { println!("check input.."); continue },
+        };
+
+        let length: usize = small_vector.len();
+
+        if index <= length - 1 {
+            println!("Yep, you called v1({}) => {} correctly, continuing..",
+            index,
+            small_vector[index]);
+
+            break;
+        }
+    }
+
     // First Exercise of Chapter 8
     // Calculate mean, median and the mode (using hashmap) of a Vector
-    let mut v: Vec<i32> = vec![3, 1, 4, 7, 5, 9, 2, 2, 9, 4, 1, 3, 9, 8];
+    let mut v: Vec<i32> = vec![3, 1, 4, 7, 5, 9, 2, 2, 9, 4, 1, 3, 9, 8]; // v2
 
-    println!("Our vector v is {:?}", v);
-    println!("mean(v) => {}", mean(&v));
-    println!("median(v) => {}", median(&mut v));
-    println!("mode(v) => {}", mode(&v));
+    println!("\nOur next vector v2 is {:?}\n", v);
+    println!("mean(v2) => {}", mean(&v));
+    println!("median(v2) => {}", median(&mut v));
+    println!("mode(v2) => {}", mode(&v));
 }
 
 fn arrays () {
